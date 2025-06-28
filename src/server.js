@@ -5,6 +5,7 @@ const userRouter = require("./routes/userRoutes.js");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes.js");
 const taskRouter = require("./routes/taskRoutes.js");
+const projectRouter = require("./routes/projectRoutes.js");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/users', userRouter)
 app.use('/auth', authRoutes)
 app.use('/task',taskRouter)
+app.use('/project',projectRouter)
 
 app.listen(serverConfig.PORT, async () => {
     await connectDB();

@@ -2,19 +2,26 @@
 const mongoose  = require('mongoose');
 const bcrypt = require('bcrypt');
 const taskSchema = new mongoose.Schema({
-    taskName: {
+    title: {
         type: String,
         required: true,
         trim: true,
     },
-    taskDescription: {
+    description: {
         type: String,
         required: true,
         trim: true
     },
-    taskPriority: {
+    priority: {
         type: String,
-        required: true
+        enum: ['low','high','medium'],
+        default:'low'
+    },
+    status:{
+        type: String,
+        enum:['completed','pending'],
+        default: 'pending'
+        
     }
 }, {
     timestamps: true
